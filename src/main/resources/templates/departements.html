@@ -6,6 +6,26 @@
 	</head>
 	<body>
 		<div th:replace="common/fragments :: navbar"></div>
-		<h3>Departements</h3>
+		
+		<div class="container">
+			<h3>Departements</h3>
+			<table class="table">
+				<thead>
+					<tr>
+						<th>Nom du Departement</th>
+						<th>Action</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="dept : ${departements}">
+						<td><span th:text="${dept.nom}"></span></td>
+						<td>
+							<span class="mr-4 btn btn-danger"><i class="fas fa-trash-alt"></i></span>
+							<a th:href="@{'/departements/update/' + ${dept.id}}"><span class="btn btn-success"><i class="far fa-edit"></i></span></a>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
 	</body>
 </html>

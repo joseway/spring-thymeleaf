@@ -20,7 +20,9 @@ public class DepartementController {
 	private DepartementService departementService;
 
 	@RequestMapping(value="")
-	public String findAll() {
+	public String findAll(Model model) {
+		model.addAttribute("departements", departementService.findAll());
+		
 		return "departements";
 	}
 	//@RequestMapping(value="/{id}", method=RequestMethod.POST)
@@ -41,4 +43,11 @@ public class DepartementController {
 		
 		return "redirect:/departements";
 	}
+	@GetMapping(value="/update/{did}")
+	public String update(@PathVariable("did")Long id, Model model) {
+		Departement d = departementService.findById(id);
+		model.addAttribute("departement", d);
+		return "updateDepartement";
+	}
+	
 }
