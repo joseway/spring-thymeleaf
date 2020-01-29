@@ -10,49 +10,21 @@
 		
 		<div class="container">			
 	
-			<h3>Page Accueil</h3>
+		<table class="table">
+			<thead>
+				<tr>
+					<th>Nom</th>
+					<th>Employes</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="dept : ${departements}">
+					<td th:text="${dept.nom}"></td>
+					<td th:text="${dept.employes.size()}"></td>
+				</tr>
+			</tbody>
+		</table>
 			
-			<div>
-				<form>
-					<div class="form-group">
-						<label for="nom">Nom</label>
-						<input type="text" id="nom" class="form-control"/>
-					</div>
-					<button class="btn btn-danger">Submit</button>
-				</form>
-			</div>
-			
-			<div class="row">
-				<div class="col-md-9">Contenu de gaushe</div>
-				<div class="col-md-3">Contenu de droite</div>
-			</div>
-			
-			<div class="card">
-				<div class="card-header">
-					<h4>Titre du contenu</h4>
-				</div>
-				<div class="card-body">
-					C'est le contenu principalqui sera place ici
-				</div>
-				<div class="card-footer">
-					&copy; 2020 - Footer
-				</div>
-			</div>
-			<div>
-				<button class="btn btn-primary">Click Me</button>
-			</div>
-			
-			
-			<ul th:each="n : ${names}">
-				<li th:text="${n}"></li>
-			</ul>
-			<p>Utilisateur: <span th:text="${param.user}"></span></p>
-			
-			<div th:text="${estActif}? 'Bonjour' : 'Aurevoir'"></div>
-			<p th:text="${u1.id} + ' ' + ${u1.nom}"></p>
-			<div>
-				<a th:href="@{'/users/' + ${u1.id}}">Voir Plus</a>
-			</div>
 		</div>
 	</body>
 </html>
