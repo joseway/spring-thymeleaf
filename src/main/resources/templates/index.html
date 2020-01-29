@@ -19,8 +19,12 @@
 			</thead>
 			<tbody>
 				<tr th:each="dept : ${departements}">
-					<td th:text="${dept.nom}"></td>
-					<td th:text="${dept.employes.size()}"></td>
+					<td>
+						<a th:href="@{'/departements/' + ${dept.id}}"><span th:text="${dept.nom}"></span></a>
+					</td>
+					<td>
+						<span th:text="${dept.employes.size()}"></span>
+					</td>
 				</tr>
 			</tbody>
 		</table>
