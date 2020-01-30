@@ -11,4 +11,10 @@ public interface EmployeService {
 	public List<Employe> findAll();
 	
 	public Employe findById(Long id);
+	
+	public List<Employe> findByNom(String nom);
+	
+	public List<Employe> findByPrenomAndEmail(String prenom, String email);
+	
+	public List<Employe> findByNomLike(String nom);
 }

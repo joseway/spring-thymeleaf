@@ -33,4 +33,22 @@ public class EmployeServiceImpl implements EmployeService{
 		return employeRepository.findById(id).get();
 	}
 
+	@Override
+	public List<Employe> findByNom(String nom) {
+		
+		return employeRepository.findByNom(nom);
+	}
+
+	@Override
+	public List<Employe> findByPrenomAndEmail(String prenom, String email) {
+		
+		return employeRepository.findByPrenomAndEmail(prenom, email);
+	}
+
+	@Override
+	public List<Employe> findByNomLike(String nom) {
+		
+		return employeRepository.findByNomLike(nom);
+	}
+
 }

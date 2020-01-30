@@ -10,7 +10,22 @@
 		<div class="container">
 			<h4>Employes</h4>
 			<div class="row">
-				<div class="col-md-8"></div>
+				<div class="col-md-8">
+					<table class="table">
+						<thead>
+							<tr>
+								<th>Nom</th>
+								<th>Email</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr th:each="emp : ${employes}">
+								<td><span th:text="${emp.prenom + ' ' + emp.nom}"></span></td>
+								<td><span th:text="${emp.email}"></span></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
 				<div class="col-md-4">
 				<h4>Creer Employe</h4>
 					<form th:action="@{/employes}" th:object="${employe}" method="post">
